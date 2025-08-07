@@ -15,11 +15,11 @@ const ChatBot = () => {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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", // replace with your real key
+        "Authorization": "Bearer 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", // replace with your real key
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "openai/gpt-3.5-turbo",
+        model: "mistralai/mistral-7b-instruct",
         messages: [
           { role: "system", content: "You are a cool friend." },
           ...newMessages
@@ -128,5 +128,6 @@ speak(luna)
 </div>
   );
 };
+
 
 export default ChatBot;
