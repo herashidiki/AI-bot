@@ -1,5 +1,6 @@
 import { useState } from "react";
 import{FaRobot} from"react-icons/fa"
+const apikey = import.meta.env.VITE_OPENROUTER_KEY;
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([]);
@@ -15,11 +16,11 @@ const ChatBot = () => {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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", // replace with your real key
+        "Authorization":`Bearer ${apikey}`, // replace with your real key
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "mistralai/mistral-7b-instruct",
+        model: "mistralai/mixtral-8x7b-instruct",
         messages: [
           { role: "system", content: "You are a cool friend." },
           ...newMessages
@@ -59,7 +60,7 @@ speechSynthesis.speak(utterance)
 
 
 speak(luna)
-
+console.log(apikey)
 
 
 
